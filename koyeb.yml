@@ -1,0 +1,18 @@
+name: my-flask-app
+version: 1.0
+
+services:
+  - name: web
+    type: web
+    instance_type: nano
+    port: 5000
+
+    build:
+      type: python
+      entrypoint: gunicorn app:app
+      requirements:
+        - Flask==2.0.1
+        - gunicorn==20.1.0
+
+    env:
+      FLASK_ENV: production
