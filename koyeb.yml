@@ -9,10 +9,9 @@ services:
 
     build:
       type: python
-      entrypoint: gunicorn app:app
-      requirements:
-        - Flask==2.0.1
-        - gunicorn==20.1.0
+
+    run:
+      command: gunicorn app:app
 
     env:
       FLASK_ENV: production
