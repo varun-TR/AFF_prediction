@@ -5,13 +5,13 @@ services:
   - name: web
     type: web
     instance_type: nano
-    port: 5000
+    port: 8000
 
     build:
       type: python
 
     run:
-      command: gunicorn app:app
+      command: uwsgi --ini uwsgi.ini
 
     env:
       FLASK_ENV: production
